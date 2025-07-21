@@ -72,6 +72,38 @@ export SUPERSET_CONFIG_PATH=/home/supersetuser/superset_config/superset_config.p
 echo 'export FLASK_APP=superset' >> ~/.bashrc
 source ~/.bashrc
 ```
+Set Database:
+
+```bash
+sudo -u postgres psql
+```
+now create db and give access
+```sql
+CREATE DATABASE superset_db;
+CREATE USER superset_user WITH PASSWORD 'your_secure_password';
+GRANT ALL PRIVILEGES ON DATABASE superset_db TO superset_user;
+ALTER ROLE superset_user SET client_encoding TO 'utf8';
+ALTER ROLE superset_user SET default_transaction_isolation TO 'read committed';
+ALTER ROLE superset_user SET timezone TO 'UTC';
+
+```
+Exit the shell:
+```bash
+\q
+```
+Find PostgreSQL Connection Details:
+```bash
+sudo nano /etc/postgresql/14/main/postgresql.conf
+
+```
+Ensure this setting is correct:
+```bash
+listen_addresses = '*'
+```
+If needed, restart PostgreSQL:
+```bash
+sudo systemctl restart postgresql
+````
 
 ## Step 6: Create Configuration File
 
