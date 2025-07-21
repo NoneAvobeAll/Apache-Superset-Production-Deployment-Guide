@@ -104,7 +104,14 @@ If needed, restart PostgreSQL:
 ```bash
 sudo systemctl restart postgresql
 ````
-
+Open pg_hba.conf and Edit:
+```bash
+sudo nano /etc/postgresql/14/main/pg_hba.conf
+```
+Add this one under **ipv4**
+```bash
+host    all             all             0.0.0.0/0               md5
+```
 ## Step 6: Create Configuration File
 
 ```bash
