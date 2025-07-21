@@ -59,7 +59,7 @@ Install Superset and necessary drivers:
 
 ```bash
 pip install --upgrade pip setuptools wheel
-pip install apache-superset psycopg2 gunicorn mysqlclient pymysql
+pip install apache-superset psycopg2-binary gunicorn mysqlclient 
 pip install marshmallow==3.20.1
 pip install marshmallow-sqlalchemy==0.28.1
 ```
